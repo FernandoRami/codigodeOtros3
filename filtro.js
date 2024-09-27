@@ -1,5 +1,4 @@
 // Tenemos un li de productos
-
 const productos = [
   {nombre: "Zapato negro", tipo: "zapato", color: "negro", img: "./taco-negro.jpg"},
   {nombre: "Zapato azul", tipo: "zapato", color: "azul", img: "./taco-azul.jpg"},
@@ -8,8 +7,9 @@ const productos = [
   {nombre: "Zapato rojo", tipo: "zapato", color: "rojo", img: "./zapato-rojo.jpg"}
 ]
 
-const li = document.getElementsByName("lista-de-productos")
-const $i = document.querySelector('.input');
+
+const li = document.getElementById("lista-de-productos");//era un getElementByName y era por id
+const $i = document.querySelector("input");//estaba mal porque lo busca como clase
 
 for (let i = 0; i < productos.length; i++) {
   var d = document.createElement("div")
@@ -22,13 +22,12 @@ for (let i = 0; i < productos.length; i++) {
   var imagen = document.createElement("img");
   imagen.setAttribute('src', productos[i].img);
 
-  d.appendChild(ti)
-  d.appendChild(imagen)
+  d.appendChild(ti);
+  d.appendChild(imagen);
 
-  li.appendChild(d)
+  li.appendChild(d);
 }
-
-displayProductos(productos)
+//displayProductos(productos);   //Se comenta esta linea porque esta funcio no esta creada
 const botonDeFiltro = document.querySelector("button");
 
 botonDeFiltro.onclick = function() {
@@ -60,4 +59,4 @@ botonDeFiltro.onclick = function() {
 
 const filtrado = (productos = [], texto) => {
   return productos.filter(item => item.tipo.includes(texto) || item.color.includes(texto));
-}    
+}
